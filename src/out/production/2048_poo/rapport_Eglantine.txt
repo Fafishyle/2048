@@ -1,0 +1,34 @@
+Objectifs : 
+
+1. attribuer des couleurs aux cases en fonction des valeurs.  
+2. rendre les cases arrondies 
+3. faire des animations (glissé des cases, apparition des cases en fondu)
+4. Revenir sur ses précédents coups 
+
+1. Attribuer des couleurs aux cases en fonction des valeurs
+Dans un premier temps, création d'une fonction colorCase(), que j'appelle dans rafraichir(). Cependant, cela ne fonctionne pas. Si je mets exactement le même code directement dans la fonction rafraichir(), cela fonctionne. C'est la solution actuellement utilisée. Je pense que le soucis vient des pointeurs, où mon JLabel passé en paramètre doit être en copie et non en référence. 
+
+2. Rendre les cases arrondies
+Plusieurs idées ont été tentées. 
+Première idée : modifier la bordure en créant une classe RoundedBorder
+-> non concluant, le background reste carré et on a juste une fine bordure noire autour 
+Seconde idée : créer une classe RoundedLabel pour faire des JLabel arrondis
+-> non concluant pour la même raison. J'ai cependant laissé le fichier existant pour conserver une trace du travail effectué. 
+
+Dans les deux situations, j'ai utilisé l'objet RoundedRect
+
+Finalement, lors de la création de l'objet LineBorder, j'ai ajouté le boolean true en paramètre pour avoir un arrondi, mais celui-ci n'est pas concluant non plus car des croix blanches entre les cases apparaissent. Je n'arrive pas à modifier le background du JLabel contenant les cases. 
+
+3. Faire des animations
+1) Glissé des cases
+Création de la fonction animationGlisseCase() dans Swing2048, puisque cette fonction fait parti de la vue. 
+Cependant, je ne sais pas comment faire appel à cette fonction, et j'ai arrêté de chercher à cause d'un autre problème que l'on va voir au prochain point. 
+2) Apparition des cases en fondu
+Cela se fait directement dans la fonction rafraichir pour le moment -> voir si je ne le mets pas dans une autre fonction pour que cela soit plus propre. 
+On part de la couleur de la case nulle pour arriver en fondue sur la couleur de la nouvelle case apparue. Pour rendre le dégradé visible, je fais des sleep() sur le thread en cours. 
+Problème : l'affichage du code après compilation ne se fait pas ligne par ligne mais tout est d'abord chargé et ensuite affiché d'un coup. Par conséquent, les sleep() créent seulement un temps de latence durant lequel il n'y a aucun affichage, puis l'affichage terminé. 
+
+4. Revenir sur ses coups précédents
+Création de la classe LogFile, avec les fonctions createLogFile(), writeLogFile(), deleteLogFile() et readLastLineLogFile(). 
+Ainsi, au lancement du jeu, un fichier log.txt est créé, et à chaque coup, la table est enregistrée dans une nouvelle ligne du fichier. Pour revenir au coup précédent, on appelle readLastLineLogFile() pour récupérer la table du coup précédent, on met à jour le jeu, et on affiche. 
+Je voulais rajouter en plus le fait de supprimer le coup annulé, mais supprimer une ligne d'un fichier n'est pas très simple et il se fait tard. 

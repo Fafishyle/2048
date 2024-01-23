@@ -1,0 +1,30 @@
+Rappel:
+git pull : recuperer les modifs (version locale à jour) (en étant dans le rep local ici: 2048_poo)
+envoyer modif:
+	- 1. git add : ajouter les fichiers : repertoire locale
+	- 2. git commit -m "commentaire ici" 
+	- 3. git push : envoie officiellement sur le rep git serveur  
+
+dans Jeu, creer moveJeu() qui fait 2 boucles qui va parcourir toutes les cases 
+(si direction gauche et haut (parcours de droite à gauche )
+(si direction droite et bas: de gauche à droite) etc.
+et pour chacune de ses cases, on appelle Case.move()
+
+Dans swing, renplacer rnd() par moveJeu()
+Debugger le thread rnd() qui appelle notify observer
+Dans Jeu, créer la fonction ajoutCase(), Ajouter une nouvelle case aléatoirement (2 ou 4 dans une case vide), à chaque déplacement possible.
+Dans moveJeu(), création de booléen "action": qui si false, ne rajoute pas de nouvelle case.
+Dans swing2048, gérer l'affichage du Jeu pour ne pas faire apparaitre les bordures (-1)
+
+
+A faire pour finir 2048:
+
+-> ne pas fusionner si déjà une case fusionner 
+-> fonction endGame() qui verifie les condition de fin de Jeu: 
+	-> Si une case est à 2048
+	-> si "toute les Direction" sont perdante, et que tt les cases sont remplie
+		et qu'il n'y a plus rien à fusionner
+
+
+
+

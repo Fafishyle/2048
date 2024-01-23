@@ -1,0 +1,25 @@
+-> ne pas fusionner si déjà une case fusionner
+
+Dans Jeu: creer une pile (Stack en Java) deja_fusionne, qui a chaque action, est ajouté une reference à une case déjà fusionne.
+Si la case courante a déjà été fusionné ou si la case à coté a déjà été fusionné(c.a.d. se trouve dans la pile), on ne fait rien. Sinon, on fusionne.
+Il ne faut pas oublier de vide la pile à la fin de l'action.
+
+-> Coder la fin de Jeu
+
+endGame(boolean gagnante) qui met fin au Jeu si gagnante ou perdante, pour l'instant, elle n'arrete pas le jeu mais elle affiche sur la console la fin:
+Elle est appellé dans :
+	- testEndGame()
+	- si la valeur d'une case est égale à 2048, lors d'une fusion dans Case, on appelle endGame(true) car gagnate.
+fonction testEndGame() qui verifie les condition de fin de Jeu: 
+	->si "toute les Direction" sont perdante= 
+		-> on a créé la fonction test_action(direction d), qui teste si une fusion pour 1 direction donnée est possible si le plateau est remplie.
+		-> pour toute les direction, si on fait l'opérateur " || " des test_action(d) est que c'est false(aucune action possible), alors on appelle endGame (false) car on a perdu
+Entre temps, on a créée la fonction numberCurentCase() qui renvoie le nombre de case sur le plateau.  
+
+-> Interface graphique:: Changement de couleur de case selon la valeur 
+
+
+A faire plutard:
+- les extensions:
+	Pop up de fin de jeu
+	animation des cases...etc.

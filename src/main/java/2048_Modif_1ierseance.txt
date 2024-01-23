@@ -1,0 +1,45 @@
+Nos modifications:
+
+- class Point à créer (ou on utilise le type position)
+-dans Jeu enlever rnd() car plus besoin
+-dans Jeu, importer la hashmap, et creer hmCases=> "a partir de Case = key, on a les coordonnées = valeur(la classe Point)"
+- getCase(case,direction): recupere la case à cote en fonction de la direction 
+- Dans constructeur de Jeu: " Jeu() " : augmenter la taille du tableau de 2 (pour avoir des bordures) et initialiser les valeurs à " -1 " dans les bordures
+- rajouter attribut Jeu jeu qui est une reference dans la classe Case (! ne pas oublier d'initialiser dans constructeur) 
+    => on dit que Case est une COMPOSITION  de Jeu,
+    => donc on met jeu dans les paramètres du constructeur de case: "Case(jeu:Jeu)"
+  
+  _ _ _ _ _ _ _ _ _ _ _ _ OK COMPILE, resultat d'afichage : (des "-1" sur les bordures MAIS on utilise encore rnd()  _ _ _ _ _ _ _ __ _ __  __ _ _ _ _ _
+  
+ - remplacer dans "Case.java" rnd() par move(Direction)
+   => implémenter en utilisant la fonction getCase(case,direction)
+   => et definir les conditions selon la case à coté:
+    Soit vide:
+      . Donc on le déplace
+    Soit valeur est la même:
+      . on fusion
+     Soit la valeur est diférente || on est en bordure
+      . on laisse 
+
+-> on deleteCase() à cause de fusion (remplacer la valeur de la case courante et suppprimer la case d'à coté)
+    -  (valeur à null dans tableau) 
+    - supprimer du tab
+    - hasmmap.remove() les coordonées 
+           
+        
+fonction privé rafraichit updateCase(Case c) //appeller par move() 
+  => synchronise les coordonées : le tab et le hashmap 
+    - tab [hashmap recupere xy], 
+    
+    
+    
+à faire plutard:
+debuger
+on va faire 1 boucles qui va parcourir toutes les cases (si direction gauche (parcours de droite à gauche )
+(si direction droite: de gauche à droite) etc.
+et pour chacune de ses cases, on appelle Case.move() pour chacune d'entre elles 
+
+
+  
+  
+  
